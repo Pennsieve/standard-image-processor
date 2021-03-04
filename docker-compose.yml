@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  standard_image_processor:
+    build:
+      context: .
+      dockerfile: standard_image_processor/Dockerfile
+    container_name: standard-image-processor
+    command: ["python", "-m", "pytest", "-s", "-x", "--cov-report", "html:/docker_scratch/htmlreport", "--cov=standard_image_processor", "tests/"]
+    env_file:
+      - standard_image_processor/test.env
+    image: pennsieve/standard-image-processor:${IMAGE_TAG}
+    volumes:
+      - ./standard_image_processor/tests/resources:/test-resources/
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}

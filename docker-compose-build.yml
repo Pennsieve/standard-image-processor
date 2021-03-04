@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  standard_image_processor:
+    build:
+      context: .
+      target: prod
+      dockerfile: standard_image_processor/Dockerfile
+    container_name: standard-image-processor
+    image: pennsieve/standard-image-processor:${IMAGE_TAG}
