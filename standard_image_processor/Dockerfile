@@ -1,7 +1,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # TEST IMAGE
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-FROM pennsieve/base-processor-pandas-test:6-43b7408 as test
+FROM pennsieve/base-processor-pandas-test:1-5800e81 as test
 
 RUN apk add --no-cache --update build-base \
         gcc \
@@ -62,7 +62,7 @@ ENTRYPOINT [""]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # PRODUCTION IMAGE
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-FROM pennsieve/base-processor-pandas:6-43b7408 as prod
+FROM pennsieve/base-processor-pandas:1-5800e81 as prod
 
 RUN apk add --no-cache --update build-base \
         gcc \
